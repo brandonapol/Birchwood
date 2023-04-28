@@ -1,0 +1,6 @@
+[submodule "birchwood-blog"]
+	path = birchwood-blog
+	url = https://github.com/brandonapol/birchwood-blog
+[submodule "birchwood-CMS"]
+	path = birchwood-CMS
+	url = https://github.com/brandonapol/birchwood-CMS
