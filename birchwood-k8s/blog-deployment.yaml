@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: blog
-          image: portfolio_blog
+          image: brandonapol/birchwood:bw-blog
           ports:
             - containerPort: 3000
           env:

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: portfolio_server
+          image: brandonapol/birchwood:bw-server
           ports:
             - containerPort: 8000
           env:
