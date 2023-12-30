@@ -38,7 +38,7 @@ jobs:
 
     - name: Install NextJS dependencies
       if: matrix.app == 'birchwood-blog'
-      working-directory: ./birchwood-blog
+      working-directory: birchwood-blog
       run: npm install
 
     # - name: Install dependencies (Vue app)
@@ -48,7 +48,7 @@ jobs:
 
     - name: Install server dependencies
       if: matrix.app == 'birchwood-server'
-      working-directory: ./birchwood-server
+      working-directory: birchwood-server
       run: npm install
 
     - name: Build (Next.js app)
