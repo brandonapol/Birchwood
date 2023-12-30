@@ -62,6 +62,8 @@ jobs:
       if: matrix.app == 'birchwood-blog'
       working-directory: ./birchwood-blog
       run: npm run build:prod
+      env:
+        NEXT_PUBLIC_API_URL: localhost:3000
 
     # - name: Build and test (Vue app)
     #   if: matrix.app == 'birchwood-CMS'
