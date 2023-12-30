@@ -1,4 +1,4 @@
-name: Microservices CI
+name: Birchwood Full CI
 
 on:
   push:
@@ -61,9 +61,10 @@ jobs:
     - name: Build (Next.js app)
       if: matrix.app == 'birchwood-blog'
       working-directory: ./birchwood-blog
-      run: npm run build:prod
-      env:
-        NEXT_PUBLIC_API_URL: localhost:3000
+      run: workflow_dispatch
+      # run: npm run build
+      # env:
+      #   NEXT_PUBLIC_API_URL: localhost:3000
 
     # - name: Build and test (Vue app)
     #   if: matrix.app == 'birchwood-CMS'
