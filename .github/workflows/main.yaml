@@ -36,6 +36,9 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
+
     - name: Install NextJS dependencies
       if: matrix.app == 'birchwood-blog'
       working-directory: ./birchwood-blog
