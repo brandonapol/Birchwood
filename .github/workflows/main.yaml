@@ -1,0 +1,68 @@
+name: Microservices CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x] 
+        app: [birchwood-blog, birchwood-server] # TODO - add CMS
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Cache node modules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: |
+          **/node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: Install NextJS dependencies
+      if: matrix.app == 'birchwood-blog'
+      working-directory: ./birchwood-blog
+      run: npm install
+
+    # - name: Install dependencies (Vue app)
+    #   if: matrix.app == 'birchwood-CMS'
+    #   working-directory: ./birchwood-CMS
+    #   run: yarn install
+
+    - name: Install server dependencies
+      if: matrix.app == 'birchwood-server'
+      working-directory: ./birchwood-server
+      run: npm install
+
+    - name: Build (Next.js app)
+      if: matrix.app == 'birchwood-blog'
+      working-directory: ./birchwood-blog
+      run: workflow_dispatch
+
+    # - name: Build and test (Vue app)
+    #   if: matrix.app == 'birchwood-CMS'
+    #   working-directory: ./birchwood-CMS
+    #   run: |
+    #     yarn build
+    #     yarn test
+
+    - name: Build and test (TS Express app)
+      if: matrix.app == 'birchwood-server'
+      working-directory: ./birchwood-server
+      run: npm run build
