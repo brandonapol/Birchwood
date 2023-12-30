@@ -13,3 +13,5 @@ sleep 2
 # osascript -e 'tell app "Terminal"
 #     do script "cd '"$REPO/birchwood-blog"' && echo Starting blog && npm run start"
 # end tell'
+
+echo "bingbong"

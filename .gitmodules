@@ -4,3 +4,6 @@
 [submodule "birchwood-CMS"]
 	path = birchwood-CMS
 	url = https://github.com/brandonapol/birchwood-CMS
+[submodule "birchwood-server"]
+	path = birchwood-server
+	url = https://github.com/brandonapol/birchwood-server
