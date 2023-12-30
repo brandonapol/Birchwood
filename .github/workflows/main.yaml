@@ -38,8 +38,12 @@ jobs:
 
     - name: Install NextJS dependencies
       if: matrix.app == 'birchwood-blog'
-      working-directory: birchwood-blog
-      run: npm install
+      working-directory: ./birchwood-blog
+      run: |
+        echo "PWD:"
+        pwd
+        ls -lah
+        npm install
 
     # - name: Install dependencies (Vue app)
     #   if: matrix.app == 'birchwood-CMS'
@@ -48,13 +52,13 @@ jobs:
 
     - name: Install server dependencies
       if: matrix.app == 'birchwood-server'
-      working-directory: birchwood-server
+      working-directory: ./birchwood-server
       run: npm install
 
     - name: Build (Next.js app)
       if: matrix.app == 'birchwood-blog'
-      working-directory: birchwood-blog
-      run: workflow_dispatch
+      working-directory: ./birchwood-blog
+      run: npm run build:prod
 
     # - name: Build and test (Vue app)
     #   if: matrix.app == 'birchwood-CMS'
@@ -65,5 +69,5 @@ jobs:
 
     - name: Build and test (TS Express app)
       if: matrix.app == 'birchwood-server'
-      working-directory: birchwood-server
+      working-directory: ./birchwood-server
       run: npm run build
