@@ -53,7 +53,7 @@ jobs:
 
     - name: Build (Next.js app)
       if: matrix.app == 'birchwood-blog'
-      working-directory: ./birchwood-blog
+      working-directory: birchwood-blog
       run: workflow_dispatch
 
     # - name: Build and test (Vue app)
@@ -65,5 +65,5 @@ jobs:
 
     - name: Build and test (TS Express app)
       if: matrix.app == 'birchwood-server'
-      working-directory: ./birchwood-server
+      working-directory: birchwood-server
       run: npm run build
