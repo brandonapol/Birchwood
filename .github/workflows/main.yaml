@@ -61,7 +61,7 @@ jobs:
     - name: Build (Next.js app)
       if: matrix.app == 'birchwood-blog'
       working-directory: ./birchwood-blog
-      run: npm run build:prod
+      run: npm run build
       env:
         NEXT_PUBLIC_API_URL: localhost:3000
 
