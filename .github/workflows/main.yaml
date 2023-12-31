@@ -44,10 +44,10 @@ jobs:
       working-directory: ./birchwood-blog
       run: npm install
 
-    # - name: Install dependencies (Vue app)
-    #   if: matrix.app == 'birchwood-CMS'
-    #   working-directory: ./birchwood-CMS
-    #   run: yarn install
+    - name: Install dependencies (Vue app)
+      if: matrix.app == 'birchwood-CMS'
+      working-directory: ./birchwood-CMS
+      run: npm install
 
     - name: Install server dependencies
       if: matrix.app == 'birchwood-server'
@@ -59,15 +59,15 @@ jobs:
       working-directory: ./birchwood-blog
       run: npm run build
       env:
-        NEXT_PUBLIC_API_URL: localhost:3000
+        NEXT_PUBLIC_API_URL: http://localhost:8000
         SKIP_ENV_VALIDATION: true
 
-    # - name: Build and test (Vue app)
-    #   if: matrix.app == 'birchwood-CMS'
-    #   working-directory: ./birchwood-CMS
-    #   run: |
-    #     yarn build
-    #     yarn test
+    - name: Build and test (Vue app)
+      if: matrix.app == 'birchwood-CMS'
+      working-directory: ./birchwood-CMS
+      run: npm build
+      env:
+        VITE_SERVER_API_URL: http://localhost:8000
 
     - name: Build and test (TS Express app)
       if: matrix.app == 'birchwood-server'
