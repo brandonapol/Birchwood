@@ -1,9 +1,12 @@
 [submodule "birchwood-blog"]
 	path = birchwood-blog
 	url = https://github.com/brandonapol/birchwood-blog
+	branch = main
 [submodule "birchwood-CMS"]
 	path = birchwood-CMS
 	url = https://github.com/brandonapol/birchwood-CMS
+	branch = master
 [submodule "birchwood-server"]
 	path = birchwood-server
 	url = https://github.com/brandonapol/birchwood-server
+	branch = master
