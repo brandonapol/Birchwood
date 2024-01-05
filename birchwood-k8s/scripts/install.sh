@@ -1,16 +1,18 @@
 #!/bin/bash
 
+export NODES_DIR="$REPO"/birchwood-k8s/cluster-nodes
+
 # Install blog
 echo "Installing blog..."
 helm install "birchwood-blog" -n "blog"
 
 # Install CMS
 echo "Installing CMS..."
-helm install birchwood-cms -n cms "$REPO"/birchwood-k8s/cluster-nodes/bw-cms
+helm install birchwood-cms -n cms "$NODES_DIR"/bw-cms
 
 # Install server
 echo "Installing server..."
-helm install "birchwood-server" -n "server"
+helm install birchwood-server -n server "$NODES_DIR"/bw-server
 
 # Install MongoDB
 echo "Installing MongDB..."
