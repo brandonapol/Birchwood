@@ -6,7 +6,7 @@ helm install "birchwood-blog" -n "blog"
 
 # Install CMS
 echo "Installing CMS..."
-helm install "birchwood-cms" -n "cms"
+helm install birchwood-cms -n cms "$REPO"/birchwood-k8s/cluster-nodes/bw-cms
 
 # Install server
 echo "Installing server..."
