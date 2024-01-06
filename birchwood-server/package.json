@@ -11,7 +11,8 @@
     "build": "npm-run-all clean lint tsc",
     "start": "node dist/server.js",
     "prestart": "npm run build",
-    "test": "tsc"
+    "test": "tsc",
+    "serve": "node dist/server.js"
   },
   "author": "",
   "license": "MIT",
