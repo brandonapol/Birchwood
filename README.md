@@ -15,7 +15,9 @@ I also have mostly kept this a solo venture, so that I can say 'I made that.'
 Some technologies implemented here include NextJS because I wanted to explore the server-side part of the new JS 
 frameworks, Istio and Helm for production, and a CMS with Vue frontend and Express (TypeScript) back end. Plan is 
 to migrate the back end to Golang soon and then rewrite it again in C# shortly after. I might also try exploring 
-data migrations for the database, as well as seeing what it would look like to do mirroring, backups, etc.
+data migrations for the database, as well as seeing what it would look like to do mirroring, backups, etc. Oh, and I'm 
+going to rewrite the main blog and landing page in HTMX, because other than proof of concept, there's no reason to 
+use a bloated megaframwoooooork like NextJS for this. It was educational and 'production grade!!!' but get real.
 
 I'll probably deploy this for like a week as a cluster and then take it down and figure out how to deploy it on a 
 home server.

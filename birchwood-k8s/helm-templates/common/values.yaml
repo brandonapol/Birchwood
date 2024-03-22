@@ -1,0 +1,4 @@
+common-values:
+  ## @param top level domain for application's gateway
+  ## Defaults to 'k8s.birchwood.com'
+  clusterTLD: ""

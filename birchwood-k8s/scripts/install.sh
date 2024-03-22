@@ -16,7 +16,6 @@ helm install birchwood-server -n server "$NODES_DIR"/bw-server
 
 # Install MongoDB
 echo "Installing MongDB..."
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm dependency build $REPO/birchwood-k8s/cluster-nodes/mongo
-helm install mongo -n shared $REPO/birchwood-k8s/cluster-nodes/mongo -f $REPO/birchwood-k8s/cluster-nodes/mongo/values.yaml
-helm install my-mongodb bitnami/mongodb --version 14.4.2
+helm install mongodb-bw \
+    --set auth.rootPassword=secretpassword,auth.username=my-user,auth.password=my-password,auth.database=my-database \
+    oci://registry-1.docker.io/bitnamicharts/mongodb

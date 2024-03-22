@@ -13,4 +13,7 @@ service:
 ingress:
   enabled: false
 
+env:
+  MONGO_URI: mongodb://my-user:my-password@localhost:27017
+
 resources: 
